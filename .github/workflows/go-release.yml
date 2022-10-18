@@ -74,7 +74,7 @@ jobs:
         uses: zu1k/aur-publish-action@master
         with:
           package_name: nali-go-bin
-          commit_username: 'zu1k'
+          commit_username: 'newton-miku'
           commit_email: 'i@zu1k.com'
           ssh_private_key: ${{ secrets.AUR_SSH_PRIVATE_KEY }}
           new_release: ${{ steps.version.outputs.version }}
@@ -88,10 +88,10 @@ jobs:
         run: echo ::set-output name=version::${GITHUB_REF##*/v}
 
       - name: Publish AUR package nali-go
-        uses: zu1k/aur-publish-action@master
+        uses: newton-miku/aur-publish-action@master
         with:
           package_name: nali-go
-          commit_username: 'zu1k'
+          commit_username: 'newton-miku'
           commit_email: 'i@zu1k.com'
           ssh_private_key: ${{ secrets.AUR_SSH_PRIVATE_KEY }}
           new_release: ${{ steps.version.outputs.version }}
