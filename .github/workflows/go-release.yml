@@ -71,7 +71,7 @@ jobs:
         run: echo ::set-output name=version::${GITHUB_REF##*/v}
 
       - name: Publish AUR package nali-go-bin
-        uses: zu1k/aur-publish-action@master
+        uses: newton-miku/aur-publish-action@master
         with:
           package_name: nali-go-bin
           commit_username: 'newton-miku'
