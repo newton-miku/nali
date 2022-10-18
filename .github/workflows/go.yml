@@ -41,10 +41,10 @@ jobs:
         run: echo ::set-output name=version::$(git describe --long --tags | sed 's/^v//;s/\([^-]*-g\)/r\1/;s/-/./g')
 
       - name: Publish AUR package nali-go-git
-        uses: zu1k/aur-publish-action@master
+        uses: newton-miku/aur-publish-action@master
         with:
           package_name: nali-go-git
-          commit_username: 'zu1k'
+          commit_username: 'newton-miku'
           commit_email: 'i@zu1k.com'
           ssh_private_key: ${{ secrets.AUR_SSH_PRIVATE_KEY }}
           new_release: ${{ steps.version.outputs.version }}
