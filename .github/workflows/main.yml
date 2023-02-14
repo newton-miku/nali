@@ -20,8 +20,7 @@ jobs:
       - uses: actions/checkout@v3
       - name: Set APP_VERSION env
         run: echo APP_VERSION=$(git describe --tags) >> ${GITHUB_ENV}
-      - name: show APP_VERSION env
-        run: echo ${{env.APP_VERSION}}
+        
       - uses: wangyoucao577/go-release-action@v1.30
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }} # 一个默认的变量，用来实现往 Release 中添加文件
@@ -29,4 +28,5 @@ jobs:
           goarch: ${{ matrix.goarch }}
           goversion: 1.18 # 可以指定编译使用的 Golang 版本
           binary_name: "nali" # 可以指定二进制文件的名称
-          ldflags: -extldflags -static -X "github.com/newton-miku/nali/internal/constant.Version=${{ env.APP_VERSION }}"
+          ldflags: -X "./internal/constant.Version=${{env.APP_VERSION}}" -w -s
+          md5sum: false
