@@ -17,7 +17,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Set APP_VERSION env
-        run: echo APP_VERSION=$(shell git describe --tags || echo "unknown version") >> ${GITHUB_ENV}
+        run: echo APP_VERSION=$(git describe --tags || echo "unknown version") >> ${GITHUB_ENV}
       - uses: wangyoucao577/go-release-action@v1.30
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }} # 一个默认的变量，用来实现往 Release 中添加文件
