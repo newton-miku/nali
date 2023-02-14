@@ -75,7 +75,7 @@ jobs:
         with:
           package_name: nali-go-bin
           commit_username: 'newton-miku'
-          commit_email: 'i@zu1k.com'
+          commit_email: '1316561519@qq.com'
           ssh_private_key: ${{ secrets.AUR_SSH_PRIVATE_KEY }}
           new_release: ${{ steps.version.outputs.version }}
 
@@ -92,6 +92,6 @@ jobs:
         with:
           package_name: nali-go
           commit_username: 'newton-miku'
-          commit_email: 'i@zu1k.com'
+          commit_email: '1316561519@qq.com'
           ssh_private_key: ${{ secrets.AUR_SSH_PRIVATE_KEY }}
           new_release: ${{ steps.version.outputs.version }}
