@@ -14,7 +14,8 @@ import (
 )
 
 var DownloadUrls = []string{
-	"https://cdn.jsdelivr.net/gh/sspanel-uim/qqwry.dat/qqwry.dat",
+	"https://testingcf.jsdelivr.net/gh/sspanel-uim/qqwry.dat/qqwry.dat",
+	"https://git.ddxnb.cn/https://github.com/sspanel-uim/qqwry.dat/raw/main/qqwry.dat",
 	"https://github.com/sspanel-uim/qqwry.dat/raw/main/qqwry.dat",
 	// Other repo:
 	// https://github.com/HMBSbige/qqwry
