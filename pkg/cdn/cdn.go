@@ -15,8 +15,10 @@ import (
 )
 
 var DownloadUrls = []string{
-	"https://cdn.jsdelivr.net/gh/4ft35t/cdn/src/cdn.yml",
+	"https://testingcf.jsdelivr.net/gh/4ft35t/cdn/src/cdn.yml",
+	"https://git.ddxnb.cn/https://raw.githubusercontent.com/4ft35t/cdn/master/src/cdn.yml",
 	"https://raw.githubusercontent.com/4ft35t/cdn/master/src/cdn.yml",
+	"https://git.ddxnb.cn/https://raw.githubusercontent.com/SukkaLab/cdn/master/src/cdn.yml",
 	"https://raw.githubusercontent.com/SukkaLab/cdn/master/src/cdn.yml",
 }
 
