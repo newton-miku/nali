@@ -18,6 +18,10 @@ import (
 	"github.com/zu1k/nali/pkg/entity"
 )
 
+func Isutf8(s string)bool{
+	return utf8.ValidString(s)
+}
+
 func isGBK(s string) bool {
 	//先检查是否是utf8字符
 	if Isutf8(s){
@@ -48,6 +52,7 @@ func isGBK(s string) bool {
 	}
 	return true
 }
+
 
 var rootCmd = &cobra.Command{
 	Use:   "nali",
