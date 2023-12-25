@@ -14,7 +14,8 @@ import (
 )
 
 var DownloadUrls = []string{
-	"https://gh-release.zu1k.com/HMBSbige/qqwry/qqwry.dat", // redirect to HMBSbige/qqwry
+	// "https://gh-release.zu1k.com/HMBSbige/qqwry/qqwry.dat", // redirect to HMBSbige/qqwry
+	"https://git.ddxnb.cn/https://github.com/HMBSbige/qqwry/releases/latest/download/qqwry.dat",
 	// Other repo:
 	// https://github.com/HMBSbige/qqwry
 	// https://github.com/metowolf/qqwry.dat
