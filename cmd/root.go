@@ -9,6 +9,7 @@ import (
 
 	"github.com/fatih/color"
 	"github.com/spf13/cobra"
+	"golang.org/x/text/encoding"
 	"golang.org/x/text/encoding/simplifiedchinese"
 	"golang.org/x/text/transform"
 
@@ -60,7 +61,6 @@ Find document on: https://github.com/zu1k/nali
 	Version: constant.Version,
 	Args:    cobra.MinimumNArgs(0),
 	Run: func(cmd *cobra.Command, args []string) {
-		gbk, _ := cmd.Flags().GetBool("gbk")
 		isJson, _ := cmd.Flags().GetBool("json")
 
 		if len(args) == 0 {
@@ -68,9 +68,14 @@ Find document on: https://github.com/zu1k/nali
 			stdin.Split(common.ScanLines)
 			for stdin.Scan() {
 				line := stdin.Text()
-				if gbk {
-					line, _, _ = transform.String(simplifiedchinese.GBK.NewDecoder(), line)
+				var decoder *encoding.Decoder
+				if common.IsGBKText(line) {
+					decoder = simplifiedchinese.GBK.NewDecoder()
+				} else {
+					decoder = encoding.Nop.NewDecoder()
 				}
+				line, _, _ = transform.String(decoder, line)
+				
 				if line := strings.TrimSpace(line); line == "quit" || line == "exit" {
 					return
 				}
@@ -100,6 +105,15 @@ func Execute() {
 }
 
 func init() {
-	rootCmd.Flags().Bool("gbk", false, "Use GBK decoder")
 	rootCmd.Flags().BoolP("json", "j", false, "Output in JSON format")
+}
+
+// IsGBKText checks if text is encoded in GBK
+func IsGBKText(text string) bool {
+	for _, b := range text {
+		if b > 0x7F {
+			return true
+		}
+	}
+	return false
 }
