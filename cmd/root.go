@@ -6,12 +6,10 @@ import (
 	"log"
 	"os"
 	"strings"
+	"unicode/utf8"
 
 	"github.com/fatih/color"
 	"github.com/spf13/cobra"
-	"golang.org/x/text/encoding"
-	"golang.org/x/text/encoding/simplifiedchinese"
-	"golang.org/x/text/transform"
 
 	"github.com/zu1k/nali/internal/constant"
 	"github.com/zu1k/nali/pkg/common"
@@ -68,21 +66,23 @@ Find document on: https://github.com/zu1k/nali
 			stdin.Split(common.ScanLines)
 			for stdin.Scan() {
 				line := stdin.Text()
-				var decoder *encoding.Decoder
-				if common.IsGBKText(line) {
-					decoder = simplifiedchinese.GBK.NewDecoder()
+				if utf8.ValidString(line) {
+					if line := strings.TrimSpace(line); line == "quit" || line == "exit" {
+						return
+					}
+					if isJson {
+						_, _ = fmt.Fprintf(color.Output, "%s", entity.ParseLine(line).Json())
+					} else {
+						_, _ = fmt.Fprintf(color.Output, "%s", entity.ParseLine(line).ColorString())
+					}
 				} else {
-					decoder = encoding.Nop.NewDecoder()
-				}
-				line, _, _ = transform.String(decoder, line)
-				
-				if line := strings.TrimSpace(line); line == "quit" || line == "exit" {
-					return
-				}
-				if isJson {
-					_, _ = fmt.Fprintf(color.Output, "%s", entity.ParseLine(line).Json())
-				} else {
-					_, _ = fmt.Fprintf(color.Output, "%s", entity.ParseLine(line).ColorString())
+					// If the input is not valid UTF-8, assume it's GBK encoded
+					line, _, _ = transform.String(simplifiedchinese.GBK.NewDecoder(), line)
+					if isJson {
+						_, _ = fmt.Fprintf(color.Output, "%s", entity.ParseLine(line).Json())
+					} else {
+						_, _ = fmt.Fprintf(color.Output, "%s", entity.ParseLine(line).ColorString())
+					}
 				}
 			}
 		} else {
@@ -106,14 +106,4 @@ func Execute() {
 
 func init() {
 	rootCmd.Flags().BoolP("json", "j", false, "Output in JSON format")
-}
-
-// IsGBKText checks if text is encoded in GBK
-func IsGBKText(text string) bool {
-	for _, b := range text {
-		if b > 0x7F {
-			return true
-		}
-	}
-	return false
 }
