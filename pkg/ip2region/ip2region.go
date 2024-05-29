@@ -15,7 +15,7 @@ import (
 )
 
 var DownloadUrls = []string{
-	"https://cdn.jsdelivr.net/gh/lionsoul2014/ip2region/data/ip2region.xdb",
+	"https://fastly.jsdelivr.net/gh/lionsoul2014/ip2region/data/ip2region.xdb",
 	"https://raw.githubusercontent.com/lionsoul2014/ip2region/master/data/ip2region.xdb",
 }
 
