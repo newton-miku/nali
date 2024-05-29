@@ -27,5 +27,5 @@ jobs:
           goos: ${{ matrix.goos }}
           goarch: ${{ matrix.goarch }}
           binary_name: "nali" # 可以指定二进制文件的名称
-          ldflags: -X "github.com/zu1k/nali/internal/constant.Version=${{env.APP_VERSION}}" -w -s
+          ldflags: -X "github.com/newton-miku/nali/internal/constant.Version=${{env.APP_VERSION}}" -w -s
           md5sum: false
