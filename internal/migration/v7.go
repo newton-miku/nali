@@ -5,9 +5,9 @@ import (
 	"strings"
 
 	"github.com/spf13/viper"
-	"github.com/zu1k/nali/internal/constant"
-	"github.com/zu1k/nali/internal/db"
-	"github.com/zu1k/nali/pkg/qqwry"
+	"github.com/newton-miku/nali/internal/constant"
+	"github.com/newton-miku/nali/internal/db"
+	"github.com/newton-miku/nali/pkg/qqwry"
 )
 
 func migration2v7() {
