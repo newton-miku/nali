@@ -5,11 +5,11 @@ import (
 
 	"github.com/spf13/viper"
 
-	"github.com/zu1k/nali/pkg/cdn"
-	"github.com/zu1k/nali/pkg/dbif"
-	"github.com/zu1k/nali/pkg/geoip"
-	"github.com/zu1k/nali/pkg/qqwry"
-	"github.com/zu1k/nali/pkg/zxipv6wry"
+	"github.com/newton-miku/nali/pkg/cdn"
+	"github.com/newton-miku/nali/pkg/dbif"
+	"github.com/newton-miku/nali/pkg/geoip"
+	"github.com/newton-miku/nali/pkg/qqwry"
+	"github.com/newton-miku/nali/pkg/zxipv6wry"
 )
 
 func GetDB(typ dbif.QueryType) (db dbif.DB) {
