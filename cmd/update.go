@@ -4,8 +4,8 @@ import (
 	"log"
 	"strings"
 
-	"github.com/zu1k/nali/internal/db"
-	"github.com/zu1k/nali/internal/repo"
+	"github.com/newton-miku/nali/internal/db"
+	"github.com/newton-miku/nali/internal/repo"
 
 	"github.com/spf13/cobra"
 )

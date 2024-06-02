@@ -3,7 +3,7 @@ package cmd
 import (
 	"fmt"
 
-	"github.com/zu1k/nali/internal/constant"
+	"github.com/newton-miku/nali/internal/constant"
 
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"

@@ -8,8 +8,8 @@ import (
 	"os"
 	"strings"
 
-	"github.com/zu1k/nali/pkg/download"
-	"github.com/zu1k/nali/pkg/wry"
+	"github.com/newton-miku/nali/pkg/download"
+	"github.com/newton-miku/nali/pkg/wry"
 
 	"github.com/lionsoul2014/ip2region/binding/golang/xdb"
 )

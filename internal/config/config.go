@@ -4,7 +4,7 @@ import (
 	"log"
 
 	"github.com/spf13/viper"
-	"github.com/zu1k/nali/internal/db"
+	"github.com/newton-miku/nali/internal/db"
 )
 
 func ReadConfig(basePath string) {

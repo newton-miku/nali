@@ -2,7 +2,7 @@ package download
 
 import (
 	"errors"
-	"github.com/zu1k/nali/pkg/common"
+	"github.com/newton-miku/nali/pkg/common"
 )
 
 func Download(filePath string, urls ...string) (data []byte, err error) {

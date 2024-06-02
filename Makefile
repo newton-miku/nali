@@ -1,7 +1,7 @@
 NAME=nali
 BINDIR=bin
 VERSION=$(shell git describe --tags || echo "unknown version")
-GOBUILD=CGO_ENABLED=0 go build -trimpath -ldflags '-X "github.com/zu1k/nali/internal/constant.Version=$(VERSION)" -w -s'
+GOBUILD=CGO_ENABLED=0 go build -trimpath -ldflags '-X "github.com/newton-miku/nali/internal/constant.Version=$(VERSION)" -w -s'
 
 PLATFORM_LIST = \
 	darwin-arm64 \

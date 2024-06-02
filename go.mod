@@ -1,4 +1,4 @@
-module github.com/zu1k/nali
+module github.com/newton-miku/nali
 
 go 1.19
 

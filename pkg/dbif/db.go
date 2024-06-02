@@ -3,13 +3,13 @@ package dbif
 import (
 	"fmt"
 
-	"github.com/zu1k/nali/pkg/cdn"
-	"github.com/zu1k/nali/pkg/geoip"
-	"github.com/zu1k/nali/pkg/ip2location"
-	"github.com/zu1k/nali/pkg/ip2region"
-	"github.com/zu1k/nali/pkg/ipip"
-	"github.com/zu1k/nali/pkg/qqwry"
-	"github.com/zu1k/nali/pkg/zxipv6wry"
+	"github.com/newton-miku/nali/pkg/cdn"
+	"github.com/newton-miku/nali/pkg/geoip"
+	"github.com/newton-miku/nali/pkg/ip2location"
+	"github.com/newton-miku/nali/pkg/ip2region"
+	"github.com/newton-miku/nali/pkg/ipip"
+	"github.com/newton-miku/nali/pkg/qqwry"
+	"github.com/newton-miku/nali/pkg/zxipv6wry"
 )
 
 type QueryType uint

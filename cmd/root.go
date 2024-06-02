@@ -13,9 +13,9 @@ import (
 	"golang.org/x/text/encoding/simplifiedchinese"
 	"golang.org/x/text/transform"
 
-	"github.com/zu1k/nali/internal/constant"
-	"github.com/zu1k/nali/pkg/common"
-	"github.com/zu1k/nali/pkg/entity"
+	"github.com/newton-miku/nali/internal/constant"
+	"github.com/newton-miku/nali/pkg/common"
+	"github.com/newton-miku/nali/pkg/entity"
 )
 
 func Isutf8(s string)bool{
@@ -58,7 +58,7 @@ var rootCmd = &cobra.Command{
 	Short: "An offline tool for querying IP geographic information",
 	Long: `An offline tool for querying IP geographic information.
 
-Find document on: https://github.com/zu1k/nali
+Find document on: https://github.com/newton-miku/nali
 
 #1 Query a simple IP address
 

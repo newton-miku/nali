@@ -8,7 +8,7 @@ import (
 	"os"
 
 	"github.com/saracen/go7z"
-	"github.com/zu1k/nali/pkg/common"
+	"github.com/newton-miku/nali/pkg/common"
 )
 
 func Download(filePath ...string) (data []byte, err error) {
