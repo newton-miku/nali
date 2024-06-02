@@ -11,7 +11,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/zu1k/nali/internal/constant"
+	"github.com/newton-miku/nali/internal/constant"
 
 	"github.com/google/go-github/v55/github"
 )
