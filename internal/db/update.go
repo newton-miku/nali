@@ -6,9 +6,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/zu1k/nali/pkg/download"
-	"github.com/zu1k/nali/pkg/qqwry"
-	"github.com/zu1k/nali/pkg/zxipv6wry"
+	"github.com/newton-miku/nali/pkg/download"
+	"github.com/newton-miku/nali/pkg/qqwry"
+	"github.com/newton-miku/nali/pkg/zxipv6wry"
 )
 
 func UpdateDB(dbNames ...string) {
