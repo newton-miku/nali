@@ -1,9 +1,9 @@
 package db
 
 import (
-	"github.com/zu1k/nali/pkg/cdn"
-	"github.com/zu1k/nali/pkg/ip2region"
-	"github.com/zu1k/nali/pkg/qqwry"
+	"github.com/newton-miku/nali/pkg/cdn"
+	"github.com/newton-miku/nali/pkg/ip2region"
+	"github.com/newton-miku/nali/pkg/qqwry"
 )
 
 func GetDefaultDBList() List {
