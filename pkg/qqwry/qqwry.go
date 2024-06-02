@@ -16,8 +16,8 @@ import (
 var DownloadUrls = []string{
 	"https://mirror.ghproxy.com/https://github.com/HMBSbige/qqwry/releases/latest/download/qqwry.dat",
 	"https://git.ddxnb.cn/https://github.com/HMBSbige/qqwry/releases/latest/download/qqwry.dat",
-	"https://gh-release.zu1k.com/HMBSbige/qqwry/qqwry.dat", // redirect to HMBSbige/qqwry
-	"https://github.com/HMBSbige/qqwry/releases/latest/download/qqwry.dat",
+	// "https://gh-release.zu1k.com/HMBSbige/qqwry/qqwry.dat", // redirect to HMBSbige/qqwry
+	// "https://github.com/HMBSbige/qqwry/releases/latest/download/qqwry.dat",
 	// Other repo:
 	// https://github.com/HMBSbige/qqwry
 	// https://github.com/metowolf/qqwry.dat
