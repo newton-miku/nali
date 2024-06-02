@@ -1,12 +1,12 @@
 package main
 
 import (
-	"github.com/zu1k/nali/internal/constant"
+	"github.com/newton-miku/nali/internal/constant"
 
-	"github.com/zu1k/nali/cmd"
-	"github.com/zu1k/nali/internal/config"
+	"github.com/newton-miku/nali/cmd"
+	"github.com/newton-miku/nali/internal/config"
 
-	_ "github.com/zu1k/nali/internal/migration"
+	_ "github.com/newton-miku/nali/internal/migration"
 )
 
 func main() {
