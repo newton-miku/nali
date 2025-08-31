@@ -34,7 +34,7 @@ jobs:
         env:
           NAME: nali
           BINDIR: bin
-        run: make -j releases && make sha256sum
+        run: make -j releases
 
       - name: Upload Release
         uses: softprops/action-gh-release@v2.3.2
