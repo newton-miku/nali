@@ -11,7 +11,7 @@ import (
 	"github.com/newton-miku/nali/internal/constant"
 	"github.com/newton-miku/nali/pkg/common"
 
-	"github.com/google/go-github/v55/github"
+	"github.com/google/go-github/v84/github"
 )
 
 var (
@@ -36,17 +36,12 @@ func getLatestRelease() (*github.RepositoryRelease, error) {
 	return rel, nil
 }
 
-func getTargetAsset(rel *github.RepositoryRelease, sha bool) *github.ReleaseAsset {
+func getTargetAsset(rel *github.RepositoryRelease) *github.ReleaseAsset {
 	for _, asset := range rel.Assets {
 		name := asset.GetName()
 
-		if strings.Contains(name, constant.OS) && strings.Contains(name, constant.Arch) {
-			if sha && strings.Contains(name, ".sha256") {
-				return asset
-			}
-			if !sha && !strings.Contains(name, ".sha256") {
-				return asset
-			}
+		if strings.Contains(name, constant.OS) && strings.Contains(name, constant.Arch) && !strings.Contains(name, ".sha256") {
+			return asset
 		}
 	}
 	return nil

@@ -3,23 +3,22 @@ package repo
 import (
 	"bytes"
 	"context"
-	"crypto/sha256"
 	"encoding/hex"
 	"fmt"
 	"io"
 	"log"
 	"os"
 	"path/filepath"
+	"strings"
 
 	"github.com/newton-miku/nali/internal/constant"
 
-	"github.com/google/go-github/v55/github"
+	"github.com/google/go-github/v84/github"
 )
 
 var (
-	ctx      = context.Background()
-	tAsset   *github.ReleaseAsset
-	shaAsset *github.ReleaseAsset
+	ctx    = context.Background()
+	tAsset *github.ReleaseAsset
 )
 
 func UpdateRepo() error {
@@ -34,31 +33,28 @@ func UpdateRepo() error {
 	}
 
 	//Filtering assets by GOOS and GOARCH
-	if tAsset = getTargetAsset(rel, false); tAsset == nil {
+	if tAsset = getTargetAsset(rel); tAsset == nil {
 		return fmt.Errorf("no target asset found for %s %s", constant.OS, constant.Arch)
 	}
-	if shaAsset = getTargetAsset(rel, true); shaAsset == nil {
-		return fmt.Errorf("no sha256 asset found for %s %s", constant.OS, constant.Arch)
-	}
 
-	//Download the new version nali and its sha256
+	//Download the new version nali
 	data, err := download(ctx, tAsset.GetID())
 	if err != nil {
 		return fmt.Errorf("failed to download asset %v: %v", tAsset.GetID(), err)
 	}
 
-	vData, err := download(ctx, shaAsset.GetID())
-	if err != nil {
-		return fmt.Errorf("failed to download asset %v: %v", tAsset.GetID(), err)
-	}
-
-	// Verifying files with sha256
-	vHash := make([]byte, sha256.Size)
-	if _, err := hex.Decode(vHash, vData[:sha256.BlockSize]); err != nil {
-		return fmt.Errorf("failed to decode sha256 hash: %v", err)
-	}
-	if !validate(data, vHash) {
-		return fmt.Errorf("failed to validate asset %v, sha256 check failed", tAsset.GetID())
+	// Verifying files with sha256 (using GitHub API provided hash)
+	digest := tAsset.GetDigest()
+	if digest != "" {
+		// GitHub returns digest in format "sha256:xxxxxx"
+		hashStr := strings.TrimPrefix(digest, "sha256:")
+		vHash, err := hex.DecodeString(hashStr)
+		if err != nil {
+			return fmt.Errorf("failed to decode sha256 hash: %v", err)
+		}
+		if !validate(data, vHash) {
+			return fmt.Errorf("failed to validate asset %v, sha256 check failed", tAsset.GetID())
+		}
 	}
 
 	// Unzip and replace nali itself
