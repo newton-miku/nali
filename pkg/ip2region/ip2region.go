@@ -15,7 +15,7 @@ import (
 )
 
 var DownloadUrls = []string{
-	"https://edgeone.gh-proxy.com/https://github.com/lionsoul2014/ip2region/raw/refs/heads/master/data/ip2region_v4.xdb"
+	"https://edgeone.gh-proxy.com/https://github.com/lionsoul2014/ip2region/raw/refs/heads/master/data/ip2region_v4.xdb",
 	"https://gcore.jsdelivr.net/gh/lionsoul2014/ip2region/data/ip2region_v4.xdb",
 	"https://testingcf.jsdelivr.net/gh/lionsoul2014/ip2region/data/ip2region_v4.xdb",
 	"https://raw.githubusercontent.com/lionsoul2014/ip2region/master/data/ip2region_v4.xdb",
