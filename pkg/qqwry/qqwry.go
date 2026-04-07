@@ -15,7 +15,6 @@ import (
 
 var DownloadUrls = []string{
 	"https://edgeone.gh-proxy.com/https://github.com/metowolf/qqwry.dat/releases/latest/download/qqwry.dat",
-	"https://gh.ddxnb.cn/https://github.com/metowolf/qqwry.dat/releases/latest/download/qqwry.dat",
 	"https://git.ddxnb.cn/https://github.com/metowolf/qqwry.dat/releases/latest/download/qqwry.dat",
 	// "https://gh-release.zu1k.com/HMBSbige/qqwry/qqwry.dat", // redirect to HMBSbige/qqwry
 	// "https://github.com/HMBSbige/qqwry/releases/latest/download/qqwry.dat",
